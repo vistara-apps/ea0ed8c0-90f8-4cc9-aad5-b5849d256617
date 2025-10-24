@@ -10,8 +10,8 @@
     "iconUrl": "https://forgeprotocol.xyz/icon_256x256.png",
     "splashImageUrl": "https://forgeprotocol.xyz/splash_200x200.png",
     "splashBackgroundColor": "#0a1929",
-    "homeUrl": "https://forgeprotocol.xyz/miniapp",
-    "webhookUrl": "https://api.forgeprotocol.xyz/webhook/farcaster",
+    "homeUrl": "https://app-9d256617-2vmk.vercel.app",
+    "webhookUrl": "https://app-9d256617-2vmk.vercel.app/api/webhook",
     "subtitle": "Reputation-Gated Content",
     "description": "Gate content, experiences, and subscriptions based on Farcaster social reputation and on-chain activity. Enable seamless, gasless value exchange.",
     "screenshotUrls": [
@@ -20,7 +20,13 @@
       "https://forgeprotocol.xyz/screenshot3.png"
     ],
     "primaryCategory": "social",
-    "tags": ["reputation", "gating", "subscription", "farcaster", "base"],
+    "tags": [
+      "reputation",
+      "gating",
+      "subscription",
+      "farcaster",
+      "base"
+    ],
     "heroImageUrl": "https://forgeprotocol.xyz/og-image.png",
     "tagline": "Exclusive content, unlocked by your Farcaster reputation.",
     "ogTitle": "Forge Protocol",

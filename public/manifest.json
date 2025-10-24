@@ -1,0 +1,14 @@
+{
+  "name": "Forge Protocol",
+  "description": "Forge Protocol is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://ea0ed8c0-90f8-4cc9-aad5-b5849d256617.vercel.app",
+  "properties": {
+    "app": {
+      "name": "Forge Protocol",
+      "description": "Forge Protocol is a Base Mini App built with Zara.",
+      "url": "https://ea0ed8c0-90f8-4cc9-aad5-b5849d256617.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
