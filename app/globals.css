@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Coinbase Theme - Dark Navy */
+  --color-bg: #0a1929;
+  --color-fg: #e3f2fd;
+  --color-accent: #0052ff;
+  --color-surface: #132f4c;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-muted: #90caf9;
+}
+
+[data-theme="celo"] {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-accent: #fbcc5c;
+  --color-surface: #1a1a1a;
+  --color-border: rgba(251, 204, 92, 0.2);
+  --color-muted: #cccccc;
+}
+
+[data-theme="solana"] {
+  --color-bg: #1a0b2e;
+  --color-fg: #ffffff;
+  --color-accent: #9945ff;
+  --color-surface: #2d1b4e;
+  --color-border: rgba(153, 69, 255, 0.2);
+  --color-muted: #c084fc;
+}
+
+[data-theme="base"] {
+  --color-bg: #0052ff;
+  --color-fg: #ffffff;
+  --color-accent: #0052ff;
+  --color-surface: #1a5eff;
+  --color-border: rgba(255, 255, 255, 0.15);
+  --color-muted: #99c2ff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
