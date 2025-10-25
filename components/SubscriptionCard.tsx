@@ -1,55 +1,54 @@
-'use client'
+'use client';
 
-import { Calendar, CheckCircle2 } from 'lucide-react'
+import { Subscription } from '@/lib/types';
+import { Calendar, DollarSign, CheckCircle2 } from 'lucide-react';
 
 interface SubscriptionCardProps {
-  title: string
-  description: string
-  price: string
-  interval: 'daily' | 'weekly' | 'monthly'
-  isActive: boolean
+  subscription: Subscription;
 }
 
-export function SubscriptionCard({
-  title,
-  description,
-  price,
-  interval,
-  isActive,
-}: SubscriptionCardProps) {
+export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
+  const daysRemaining = Math.ceil(
+    (subscription.endDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+  );
+
   return (
-    <div className="bg-surface rounded-lg border border-border shadow-card p-6 hover:shadow-xl transition-all duration-300">
+    <div className="card">
       <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <h4 className="text-lg font-semibold text-fg mb-2">{title}</h4>
-          <p className="text-muted text-sm leading-6">{description}</p>
+        <div>
+          <h3 className="text-lg font-semibold mb-1">Premium Subscription</h3>
+          <p className="text-sm text-muted">Access to exclusive content</p>
         </div>
-        {isActive && (
-          <span className="px-3 py-1 bg-accent/10 rounded-full text-xs font-medium text-accent border border-accent/20">
-            Active
-          </span>
+        {subscription.isActive && (
+          <CheckCircle2 className="w-6 h-6 text-green-400" />
         )}
       </div>
-      
-      <div className="flex items-center gap-2 mb-4">
-        <Calendar className="w-4 h-4 text-accent" />
-        <span className="text-sm text-muted capitalize">{interval} subscription</span>
+
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="flex items-center gap-2">
+          <DollarSign className="w-4 h-4 text-accent" />
+          <div>
+            <p className="text-xs text-muted">Amount</p>
+            <p className="text-sm font-semibold">{subscription.amount} ETH</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <Calendar className="w-4 h-4 text-accent" />
+          <div>
+            <p className="text-xs text-muted">Interval</p>
+            <p className="text-sm font-semibold capitalize">{subscription.interval}</p>
+          </div>
+        </div>
       </div>
 
-      <div className="flex items-baseline gap-2 mb-6">
-        <span className="text-3xl font-semibold text-fg">{price}</span>
-        <span className="text-muted text-sm">/ {interval}</span>
+      <div className="p-3 rounded-lg bg-surface bg-opacity-50 mb-4">
+        <p className="text-sm text-muted mb-1">Next renewal</p>
+        <p className="text-sm font-semibold">{daysRemaining} days remaining</p>
       </div>
 
-      <button
-        className={`w-full py-2 px-4 rounded-lg font-medium transition-all duration-200 ${
-          isActive
-            ? 'bg-surface border border-border text-muted hover:border-accent'
-            : 'bg-accent text-white hover:bg-accent/90'
-        }`}
-      >
-        {isActive ? 'Manage Subscription' : 'Subscribe Now'}
+      <button className="btn-secondary w-full">
+        Manage Subscription
       </button>
     </div>
-  )
+  );
 }

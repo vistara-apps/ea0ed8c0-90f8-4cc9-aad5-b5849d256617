@@ -1,0 +1,25 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjkxNTIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMmVmNzkwRGQ3OTkzQTM1ZkQ4NDdDMDUzRURkQUU5NDBEMDU1NTk2In0",
+    "payload": "eyJkb21haW4iOiJmb3JnZXByb3RvY29sLnh5eiJ9",
+    "signature": "MHgxMGQwZGU4ZGYwZDUwZTdmMGIxN2YxMTU2NDI1MjRmZTY0MTUyZGU4ZGU1MWU0MThiYjU4ZjVmZmQxYjRjNDBiNGVlZTRhNDcwNmVmNjhlMzQ0ZGQ5MDBkYmQyMmNlMmVlZGY5ZGQ0N2JlNWRmNzMwYzUxNjE4OWVjZDJjY2Y0MDFj"
+  },
+  "frame": {
+    "version": "vNext",
+    "name": "Forge Protocol",
+    "homeUrl": "https://forgeprotocol.xyz/miniapp",
+    "iconUrl": "https://forgeprotocol.xyz/icon_256x256.png",
+    "splashImageUrl": "https://forgeprotocol.xyz/splash_200x200.png",
+    "splashBackgroundColor": "#0a1929",
+    "webhookUrl": "https://api.forgeprotocol.xyz/webhook/farcaster",
+    "subtitle": "Exclusive content, unlocked by your Farcaster reputation",
+    "description": "Enable creators to gate content, experiences, and subscriptions based on Farcaster social reputation and on-chain activity.",
+    "primaryCategory": "social",
+    "tags": ["content", "subscription", "reputation", "gating"],
+    "heroImageUrl": "https://forgeprotocol.xyz/og.png",
+    "tagline": "Reputation-powered content access",
+    "ogTitle": "Forge Protocol",
+    "ogDescription": "Exclusive content, unlocked by your Farcaster reputation",
+    "ogImageUrl": "https://forgeprotocol.xyz/og.png"
+  }
+}

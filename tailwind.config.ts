@@ -17,15 +17,18 @@ const config: Config = {
         muted: 'var(--color-muted)',
       },
       borderRadius: {
-        lg: '16px',
-        md: '10px',
         sm: '6px',
+        md: '10px',
+        lg: '16px',
       },
-      boxShadow: {
-        card: '0 8px 24px hsla(221, 83%, 53%, 0.12)',
+      spacing: {
+        sm: '8px',
+        md: '12px',
+        lg: '20px',
       },
     },
   },
   plugins: [],
 }
+
 export default config

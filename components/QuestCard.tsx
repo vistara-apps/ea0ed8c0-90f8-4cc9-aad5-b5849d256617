@@ -1,48 +1,66 @@
-'use client'
+'use client';
 
-import { Trophy, TrendingUp } from 'lucide-react'
+import { Quest } from '@/lib/types';
+import { Trophy, CheckCircle2, Circle } from 'lucide-react';
 
 interface QuestCardProps {
-  title: string
-  description: string
-  progress: number
-  reward: string
+  quest: Quest;
 }
 
-export function QuestCard({ title, description, progress, reward }: QuestCardProps) {
+export function QuestCard({ quest }: QuestCardProps) {
+  const completedTasks = quest.tasks.filter(t => t.completed).length;
+  const totalTasks = quest.tasks.length;
+  const progress = (completedTasks / totalTasks) * 100;
+
   return (
-    <div className="bg-surface rounded-lg border border-border shadow-card p-6 hover:shadow-xl transition-all duration-300">
-      <div className="flex items-start gap-4 mb-4">
-        <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-          <Trophy className="w-6 h-6 text-accent" />
-        </div>
-        <div className="flex-1">
-          <h4 className="text-lg font-semibold text-fg mb-2">{title}</h4>
-          <p className="text-muted text-sm leading-6">{description}</p>
+    <div className="card">
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-start gap-3">
+          <Trophy className="w-6 h-6 text-accent mt-1" />
+          <div>
+            <h3 className="text-lg font-semibold mb-1">{quest.name}</h3>
+            <p className="text-sm text-muted">{quest.description}</p>
+          </div>
         </div>
       </div>
 
       <div className="mb-4">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-muted">Progress</span>
-          <span className="text-sm font-medium text-accent">{progress}%</span>
+        <div className="flex items-center justify-between text-sm mb-2">
+          <span className="text-muted">Progress</span>
+          <span className="font-semibold">{completedTasks}/{totalTasks} tasks</span>
         </div>
-        <div className="w-full h-2 bg-bg rounded-full overflow-hidden">
-          <div
-            className="h-full bg-accent rounded-full transition-all duration-500"
+        <div className="w-full h-2 bg-surface rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-accent transition-smooth"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
-      <div className="flex items-center gap-2 mb-4 p-3 bg-accent/5 rounded-lg border border-accent/10">
-        <TrendingUp className="w-4 h-4 text-accent" />
-        <span className="text-sm text-fg">Reward: {reward}</span>
+      <div className="space-y-3">
+        {quest.tasks.map((task) => (
+          <div 
+            key={task.taskId}
+            className="flex items-start gap-3 p-3 rounded-lg bg-surface bg-opacity-50"
+          >
+            {task.completed ? (
+              <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            ) : (
+              <Circle className="w-5 h-5 text-muted mt-0.5 flex-shrink-0" />
+            )}
+            <div className="flex-1">
+              <p className="text-sm font-medium">{task.description}</p>
+              <p className="text-xs text-muted mt-1">{task.requirement}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <button className="w-full py-2 px-4 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-all duration-200">
-        Continue Quest
-      </button>
+      {progress === 100 && (
+        <button className="btn-primary w-full mt-4">
+          Claim Rewards
+        </button>
+      )}
     </div>
-  )
+  );
 }

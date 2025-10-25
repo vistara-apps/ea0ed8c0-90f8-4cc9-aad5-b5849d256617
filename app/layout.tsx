@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import { Providers } from './providers'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Providers } from './providers';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Forge Protocol',
-  description: 'Exclusive content, unlocked by your Farcaster reputation.',
+  description: 'Exclusive content, unlocked by your Farcaster reputation',
   openGraph: {
     title: 'Forge Protocol',
-    description: 'Exclusive content, unlocked by your Farcaster reputation.',
-    images: ['/og-image.png'],
+    description: 'Exclusive content, unlocked by your Farcaster reputation',
+    images: ['/og.png'],
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -23,5 +23,5 @@ export default function RootLayout({
         <Providers>{children}</Providers>
       </body>
     </html>
-  )
+  );
 }

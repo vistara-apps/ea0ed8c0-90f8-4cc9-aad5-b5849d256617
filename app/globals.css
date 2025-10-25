@@ -3,40 +3,13 @@
 @tailwind utilities;
 
 :root {
-  /* Coinbase Theme - Dark Navy */
+  /* Coinbase Theme */
   --color-bg: #0a1929;
   --color-fg: #e3f2fd;
   --color-accent: #0052ff;
   --color-surface: #132f4c;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(0, 82, 255, 0.2);
   --color-muted: #90caf9;
-}
-
-[data-theme="celo"] {
-  --color-bg: #000000;
-  --color-fg: #ffffff;
-  --color-accent: #fbcc5c;
-  --color-surface: #1a1a1a;
-  --color-border: rgba(251, 204, 92, 0.2);
-  --color-muted: #cccccc;
-}
-
-[data-theme="solana"] {
-  --color-bg: #1a0b2e;
-  --color-fg: #ffffff;
-  --color-accent: #9945ff;
-  --color-surface: #2d1b4e;
-  --color-border: rgba(153, 69, 255, 0.2);
-  --color-muted: #c084fc;
-}
-
-[data-theme="base"] {
-  --color-bg: #0052ff;
-  --color-fg: #ffffff;
-  --color-accent: #0052ff;
-  --color-surface: #1a5eff;
-  --color-border: rgba(255, 255, 255, 0.15);
-  --color-muted: #99c2ff;
 }
 
 * {
@@ -49,11 +22,11 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
 
 body {
-  color: var(--color-fg);
-  background: var(--color-bg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -61,8 +34,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.card-shadow {
+  box-shadow: 0 8px 24px hsla(221, 83%, 53%, 0.12);
+}
+
+.transition-smooth {
+  transition: all 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary {
+  @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold;
+  @apply hover:opacity-90 transition-smooth;
+}
+
+.btn-secondary {
+  @apply bg-surface text-fg px-6 py-3 rounded-lg font-semibold;
+  border: 1px solid var(--color-border);
+  @apply hover:bg-opacity-80 transition-smooth;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg bg-surface text-fg;
+  border: 1px solid var(--color-border);
+  @apply focus:outline-none focus:ring-2 focus:ring-accent;
+}
+
+.card {
+  @apply bg-surface rounded-lg p-6 card-shadow;
+  border: 1px solid var(--color-border);
 }

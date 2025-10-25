@@ -4,19 +4,19 @@ Exclusive content, unlocked by your Farcaster reputation.
 
 ## Features
 
-- **Reputation-Based Access Gating**: Set Farcaster-based criteria to grant exclusive access
-- **Collaborative Quest XP System**: Drive community engagement through gamified tasks
-- **Tip Jar Frames**: Seamless in-feed monetization for creators
-- **Subscription Gating**: Decentralized subscription model via Frames
+- **Reputation-Based Access Gating**: Gate content based on Farcaster social metrics
+- **Collaborative Quest XP System**: Community-driven challenges and rewards
+- **Tip Jar Frames**: Seamless creator monetization with gasless transactions
+- **Subscription Gating**: Recurring access to premium content
 
 ## Tech Stack
 
 - Next.js 15 with App Router
 - React 19
 - OnchainKit for Base integration
-- Farcaster MiniKit for social features
-- Tailwind CSS with Coinbase theme
+- MiniKit for Farcaster integration
 - TypeScript
+- Tailwind CSS (Coinbase theme)
 
 ## Getting Started
 
@@ -34,20 +34,35 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000)
 
-## Environment Variables
+## Project Structure
 
-- `NEXT_PUBLIC_ONCHAINKIT_API_KEY`: Get from [Coinbase Developer Platform](https://portal.cdp.coinbase.com/)
-- `NEXT_PUBLIC_CHAIN_ID`: Base mainnet (8453) or testnet (84532)
-- `NEXT_PUBLIC_RPC_URL`: Base RPC endpoint
-
-## Deployment
-
-Deploy to Vercel or any Next.js-compatible platform:
-
-```bash
-npm run build
-npm start
 ```
+app/
+├── layout.tsx          # Root layout with providers
+├── page.tsx            # Main landing page
+├── providers.tsx       # OnchainKit + React Query setup
+├── globals.css         # Coinbase theme styles
+components/
+├── AppShell.tsx        # Main app layout
+├── ContentCard.tsx     # Gated content display
+├── QuestCard.tsx       # Quest progress tracking
+├── SubscriptionCard.tsx # Subscription management
+├── TipJar.tsx          # Creator tipping interface
+├── ReputationBadge.tsx # User reputation display
+lib/
+├── types.ts            # TypeScript interfaces
+├── mock-data.ts        # Sample data for demo
+.well-known/
+└── farcaster.json      # Farcaster manifest
+```
+
+## Base Mini App Integration
+
+This app uses:
+- OnchainKit for wallet connections and transactions
+- MiniKit for Farcaster social features
+- Base network for gasless transactions via Paymaster
+- Reputation scoring based on Farcaster activity
 
 ## License
 
